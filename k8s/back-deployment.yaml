@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-deployment
+  namespace: junior-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back
+  template:
+    metadata:
+      labels:
+        app: back
+    spec:
+      containers:
+      - name: back
+        image: edward123abc/assessment:project-back
+        ports:
+        - containerPort: 8080
